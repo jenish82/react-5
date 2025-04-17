@@ -10,6 +10,16 @@ function App() {
   ])
 
   let [name, setName] = useState('My name is Jenish')
+
+  const handleDelet = (id)=> {
+    setEvents((prev)=>{
+      return prev.filter((event)=>{
+        return event.id !== id
+      })
+
+    })
+  }
+  
   
   const addClic = () =>{
     setName('My name is Kenesh')
@@ -26,6 +36,7 @@ function App() {
         return(
           <div key={event.id}>
             <h2>{event.title}</h2>
+            <button onClick={()=> handleDelet(event.id)}>Delete</button>
           </div>
 
         )
@@ -40,6 +51,7 @@ function App() {
       <br />
       <button onClick={() => {console.log('va aleykum assalam')}}>clic</button>
       <button onClick={()=> console.log('rahmatullohi va baracatu')}>alic</button>
+      
 
 
     </div>
